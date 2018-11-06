@@ -1,0 +1,41 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Iniciar Sesión</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form>
+            <div class="row">
+              <div class="col-12">
+                <app-input placeholder="Usuario"
+                           autocomplete="username"
+                           error="El nombre de usuario es requerido"
+                           [control]="form.get('username')">
+                </app-input>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-12">
+                <app-input placeholder="Contraseña"
+                           autocomplete="current-password"
+                           type="password"
+                           error="La contraseña es requerida"
+                           [control]="form.get('password')">
+                </app-input>
+              </div>
+            </div>
+          </form>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button
+                  color="primary"
+                  (click)="submit()">
+            Iniciar sesión
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

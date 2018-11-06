@@ -1,0 +1,11 @@
+<mat-form-field *ngIf="control" class="w-100">
+  <input matInput
+         [type]="type"
+         [placeholder]="placeholder"
+         [formControl]="control"
+         [autocomplete]="autocomplete"
+         [errorStateMatcher]="matcher">
+  <mat-error *ngIf="control.errors">
+    {{error}}
+  </mat-error>
+</mat-form-field>
