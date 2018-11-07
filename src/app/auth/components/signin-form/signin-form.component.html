@@ -1,0 +1,100 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Registrarse</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form>
+            <div class="row">
+              <div class="col-5">
+                <app-input placeholder="Nombre"
+                           autocomplete="firstName"
+                           error="El nombre es requerido"
+                           [control]="form.get('firstName')">
+                </app-input>
+              </div>
+              <div class="col-5">
+                <app-input placeholder="Apellidos"
+                           autocomplete="lastName"
+                           error="Los apellidos son requeridos"
+                           [control]="form.get('lastName')">
+                </app-input>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-12">
+                <app-input placeholder="Correo electrónico"
+                           autocomplete="email"
+                           error="El correo es requerido"
+                           [control]="form.get('email')">
+                </app-input>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-6">
+                <mat-form-field class="d-block">
+                  <input
+                         matInput
+                         [matDatepicker]="picker"
+                         placeholder="Fecha de nacimiento">
+                  <mat-datepicker-toggle matSuffix
+                                         [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+              </div>
+              <div class="col-6">
+                <app-input placeholder="Celular"
+                           autocomplete="cellphone"
+                           error="El celular es requerido"
+                           [control]="form.get('cellphone')">
+                </app-input>
+              </div>
+
+            </div>
+            <div class="row mt-2">
+              <div class="col-12">
+                <app-input placeholder="Usuario"
+                           autocomplete="username"
+                           error="El nombre de usuario es requerido"
+                           [control]="form.get('username')">
+                </app-input>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-12">
+                <app-input placeholder="Contraseña"
+                           autocomplete="current-password"
+                           type="password"
+                           error="La contraseña es requerida"
+                           [control]="form.get('password')">
+                </app-input>
+              </div>
+            </div>
+          </form>
+        </mat-card-content>
+        <div class="row">
+          <div class="col-6">
+            <mat-card-actions>
+              <button mat-raised-button
+                      color="primary"
+                      (click)="submit()">
+                Registrarse
+              </button>
+            </mat-card-actions>
+          </div>
+          <div class="col-6">
+            <mat-card-actions>
+              <button mat-raised-button
+                      color="secondary"
+                      (click)="submit()">
+                Cancelar
+              </button>
+            </mat-card-actions>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
