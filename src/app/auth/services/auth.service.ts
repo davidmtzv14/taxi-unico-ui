@@ -11,6 +11,12 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   login(login: { username: string; password: string }): Observable<User> {
-    return this.http.post<User>('url.ejemmplo.com', login);
+  const payload = {
+  ...login,
+  registrationType: 'U'
+  };
+    var x = this.http.post<User>('http://10.23.18.103:5000/login', payload);
+    console.log(x)
+    return x;
   }
 }
