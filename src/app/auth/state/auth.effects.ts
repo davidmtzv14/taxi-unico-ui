@@ -11,7 +11,10 @@ import {
   AuthActionTypes,
   Login,
   LoginFailed,
-  LoginSuccess
+  LoginSuccess,
+  Signup,
+  SignupSuccess,
+  SignupFailed
 } from './auth.actions';
 
 /**
@@ -45,6 +48,37 @@ export class AuthEffects {
   loginFailed$: Observable<Action> = this.actions$.pipe(
     ofType(AuthActionTypes.LoginFailed),
     tap(() => {
+      console.log('Error login user');
+    })
+  );
+
+  @Effect()
+  signup$: Observable<Action> = this.actions$.pipe(
+    ofType(AuthActionTypes.Signup),
+    map((action: Signup) => action.payload),
+    mergeMap(signup =>
+      this.authService.signup(signup).pipe(
+        map(user => new SignupSuccess(user)),
+        catchError(() => of(new SignupFailed()))
+      )
+    )
+  );
+
+  @Effect({ dispatch: false })
+  signupSuccess$: Observable<Action> = this.actions$.pipe(
+    ofType(AuthActionTypes.SignupSuccess),
+    map((action: SignupSuccess) => action.payload),
+    tap(user => {
+      //this.saveUserInSession(user);
+      console.log(user);
+      this.router.navigateByUrl('/auth/login');
+    })
+  );
+
+  @Effect({ dispatch: false })
+  signupFailed$: Observable<Action> = this.actions$.pipe(
+    ofType(AuthActionTypes.SignupFailed),
+    tap(user => {
       console.log('Error login user');
     })
   );

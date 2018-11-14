@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from '@app/core/models/app.state';
+import { Signup } from '@app/auth/state/auth.actions';
 
 @Component({
   selector: 'app-signin-form-container',
@@ -6,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signin-form-container.component.scss']
 })
 export class SigninFormContainerComponent implements OnInit {
+  constructor(private store: Store<AppState>) {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  signup(signup: { firstName: string, lastName: string, email: string, cellphone: string, username: string, password: string }): void {
+  	console.log(signup);
+    this.store.dispatch(new Signup(signup));
   }
 
 }

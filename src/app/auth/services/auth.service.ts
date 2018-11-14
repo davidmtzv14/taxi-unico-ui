@@ -15,8 +15,15 @@ export class AuthService {
   ...login,
   registrationType: 'U'
   };
-    var x = this.http.post<User>('http://10.23.18.103:5000/login', payload);
-    console.log(x)
-    return x;
+    return this.http.post<User>('http://10.23.27.141:5000/login', payload);
+  }
+
+  signup(signup: { firstName: string, lastName: string, email: string, cellphone: string, username: string, password: string }): Observable<User> {
+  	const payload = {
+	  ...signup,
+	  registrationType: 'U'
+ 	 };
+  	console.log(payload);
+  	return this.http.post<User>('http://10.23.27.141:5000/register', payload);
   }
 }

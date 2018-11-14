@@ -7,7 +7,10 @@ import { User } from '../models/user.model';
 export enum AuthActionTypes {
   Login = '[Auth] Login',
   LoginSuccess = '[Auth] Login Successful',
-  LoginFailed = '[Auth] Login Failed'
+  LoginFailed = '[Auth] Login Failed',
+  Signup = '[Auth] Signup',
+  SignupSuccess = '[Auth] Signup Successful',
+  SignupFailed = '[Auth] Signup Failed'
 }
 
 export class Login implements Action {
@@ -24,4 +27,18 @@ export class LoginFailed implements Action {
   readonly type = AuthActionTypes.LoginFailed;
 }
 
-export type AuthActions = Login | LoginSuccess | LoginFailed;
+export class Signup implements Action {
+	readonly type = AuthActionTypes.Signup;
+	constructor(public payload: { firstName: string, lastName: string, email: string, cellphone: string, username: string, password: string }) {}
+}
+
+export class SignupSuccess implements Action {
+  readonly type = AuthActionTypes.SignupSuccess;
+  constructor(public payload: User) {}
+}
+
+export class SignupFailed implements Action {
+  readonly type = AuthActionTypes.SignupFailed;
+}
+
+export type AuthActions = Login | LoginSuccess | LoginFailed | Signup | SignupSuccess | SignupFailed;
