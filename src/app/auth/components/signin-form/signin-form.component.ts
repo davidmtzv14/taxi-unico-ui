@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormService } from '@app/shared/services/form.service';
 
 @Component({
   selector: 'app-signin-form',
@@ -8,11 +9,22 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class SigninFormComponent implements OnInit {
   form: FormGroup;
-  constructor(private fb: FormBuilder) {
+  @Output()
+  submitEmitter: EventEmitter<{
+    firstName: string;
+      lastName: string;
+      email: string;
+      date: string;
+      cellphone: string;
+      username: string;
+      password: string;
+  }> = new EventEmitter();
+  constructor(private fb: FormBuilder, private formService: FormService) {
     this.form = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
+      date: ['', Validators.required],
       cellphone: ['', Validators.required],
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -20,4 +32,11 @@ export class SigninFormComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  submit(): void {
+    console.log(this.form.getRawValue());
+    this.form.valid
+      ? this.submitEmitter.emit(this.form.getRawValue())
+      : this.formService.markFormGroupTouched(this.form);
+  }
 }

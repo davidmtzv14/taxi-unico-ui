@@ -14,6 +14,7 @@ export class LoginFormContainerComponent implements OnInit {
   ngOnInit() {}
 
   login(login: { username: string; password: string }): void {
+  	console.log("login emitted");
     this.store.dispatch(new Login(login));
   }
 }
