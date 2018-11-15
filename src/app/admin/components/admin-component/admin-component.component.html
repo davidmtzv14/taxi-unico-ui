@@ -1,0 +1,42 @@
+<header>
+  <h1>Taxi Unico</h1>
+</header>
+<body>
+  <mat-sidenav-container>
+      <mat-sidenav mode="side" opened>
+          <mat-list style="padding-top: 0px">
+              <mat-divider></mat-divider>
+              <mat-list-item>
+                  <div  routerLinkActive="active"
+                        [routerLink]="['clients']">
+                    Clientes
+                  </div>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>
+                  <div  routerLinkActive="active"
+                        [routerLink]="['taxis']">
+                    Taxitas
+                  </div>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>
+                  <div  routerLinkActive="active"
+                        [routerLink]="['details']">
+                    Consultar Servicios
+                  </div>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>
+                  <div  routerLinkActive="active">
+                    Encuestas
+                  </div>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+            </mat-list>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+</body>
