@@ -69,7 +69,7 @@ export class AuthEffects {
     ofType(AuthActionTypes.SignupSuccess),
     map((action: SignupSuccess) => action.payload),
     tap(user => {
-      //this.saveUserInSession(user);
+      // this.saveUserInSession(user);
       console.log(user);
       this.router.navigateByUrl('/auth/login');
     })

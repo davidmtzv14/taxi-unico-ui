@@ -29,7 +29,13 @@ export class LoginFailed implements Action {
 
 export class Signup implements Action {
 	readonly type = AuthActionTypes.Signup;
-	constructor(public payload: { firstName: string, lastName: string, email: string, cellphone: string, username: string, password: string }) {}
+	constructor(public payload: {
+    firstName: string,
+    lastName: string,
+    email: string,
+    cellphone: string,
+    username: string,
+    password: string }) {}
 }
 
 export class SignupSuccess implements Action {

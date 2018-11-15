@@ -29,7 +29,8 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: SpaComponent
+    redirectTo: 'admin/clients',
+    pathMatch: 'full'
   }
 ];
 
