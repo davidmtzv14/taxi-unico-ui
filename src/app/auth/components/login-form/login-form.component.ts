@@ -14,6 +14,7 @@ export class LoginFormComponent implements OnInit {
     username: string;
     password: string;
   }> = new EventEmitter();
+  
   constructor(private fb: FormBuilder, private formService: FormService) {
     this.form = this.fb.group({
       username: ['', Validators.required],

@@ -1,3 +1,14 @@
-<p>
-  historial-tab works!
-</p>
+<div class="container-fluid">
+	<mat-card>
+	    <mat-card-header>
+	      <mat-card-title>Historial</mat-card-title>
+	    </mat-card-header>
+	    <mat-sidenav-content>
+	    	<ul>
+			    <li *ngFor="let hero of heroes">
+			      {{ hero }}
+			    </li>
+			  </ul>
+	    </mat-sidenav-content>
+	</mat-card>
+</div>
