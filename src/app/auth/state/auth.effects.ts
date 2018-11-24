@@ -40,7 +40,7 @@ export class AuthEffects {
     map((action: LoginSuccess) => action.payload),
     tap(user => {
       this.saveUserInSession(user);
-      this.router.navigateByUrl('/spa');
+      this.router.navigateByUrl('/spa/user');
     })
   );
 
