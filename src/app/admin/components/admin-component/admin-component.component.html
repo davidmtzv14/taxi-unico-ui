@@ -3,26 +3,29 @@
 </header>
 <body>
   <mat-sidenav-container>
-      <mat-sidenav mode="side" opened>
+      <mat-sidenav #sidenav mode="push" open>
           <mat-list style="padding-top: 0px">
               <mat-divider></mat-divider>
               <mat-list-item>
                   <div  routerLinkActive="active"
-                        [routerLink]="['clients']">
+                        [routerLink]="['clients']"
+                        (click)="sidenav.toggle()">
                     Clientes
                   </div>
               </mat-list-item>
               <mat-divider></mat-divider>
               <mat-list-item>
                   <div  routerLinkActive="active"
-                        [routerLink]="['taxis']">
+                        [routerLink]="['taxis']"
+                        (click)="sidenav.toggle()">
                     Taxistas
                   </div>
               </mat-list-item>
               <mat-divider></mat-divider>
               <mat-list-item>
                   <div  routerLinkActive="active"
-                        [routerLink]="['details']">
+                        [routerLink]="['details']"
+                        (click)="sidenav.toggle()">
                     Consultar Servicios
                   </div>
               </mat-list-item>
@@ -36,6 +39,7 @@
             </mat-list>
       </mat-sidenav>
       <mat-sidenav-content>
+          <p><button mat-button (click)="sidenav.toggle()">Menu</button></p>
         <router-outlet></router-outlet>
       </mat-sidenav-content>
     </mat-sidenav-container>
