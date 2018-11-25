@@ -1,38 +1,44 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-12">
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>Solicitar Servicio</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <form>
-            <div class="row">
-              <div class="col-12">
-                <app-input placeholder="Usuario" autocomplete="username" error="El nombre de usuario es requerido">
-                </app-input>
+    <div class="row">
+      <div class="col-12">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Solicitar Viaje</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <form>
+              <div class="row">
+                <div class="col-6">
+                  <app-input placeholder="Origen" autocomplete="start" error="El nombre de usuario es requerido" [control]="form.get('username')">
+                  </app-input>
+                </div>
+                <div class="col-6">
+                    <app-input placeholder="Destino" autocomplete="end" type="password" error="La contraseña es requerida" [control]="form.get('password')">
+                    </app-input>
+                  </div>
               </div>
+              <div class="row mt-2">
+                  <div class="col-6">
+                    <app-input placeholder="Fecha" autocomplete="date" error="El nombre de usuario es requerido" [control]="form.get('username')">
+                    </app-input>
+                  </div>
+                  <div class="col-6">
+                      <app-input placeholder="Hora" autocomplete="time" error="La contraseña es requerida" [control]="form.get('password')">
+                      </app-input>
+                    </div>
+                </div>
+            </form>
+          </mat-card-content>
+          <div class="row">
+            <div class="col-6">
+              <mat-card-actions>
+                <button mat-raised-button color="primary" (click)="submit()">
+                  Solicitar Viaje
+                </button>
+              </mat-card-actions>
             </div>
-            <div class="row mt-2">
-              <div class="col-12">
-                <app-input placeholder="Contraseña" autocomplete="current-password" type="password" error="La contraseña es requerida">
-                </app-input>
-              </div>
-            </div>
-          </form>
-        </mat-card-content>
-        <div class="row">
-          <div class="col-6">
-            <mat-card-actions>
-              <button mat-raised-button color="primary" (click)="submit()">
-                Iniciar sesión
-              </button>
-            </mat-card-actions>
           </div>
-          <div class="col-6">
-          </div>
-        </div>
-      </mat-card>
+        </mat-card>
+      </div>
     </div>
   </div>
-</div>
