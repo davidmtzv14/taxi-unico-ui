@@ -6,9 +6,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatListModule} from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [],
@@ -23,6 +25,8 @@ import {MatListModule} from '@angular/material/list';
     MatSidenavModule,
     MatDividerModule,
     MatListModule,
+    MatIconModule,
+    MatTabsModule
   ],
   exports: [
     MatCardModule,
@@ -34,6 +38,8 @@ import {MatListModule} from '@angular/material/list';
     MatSidenavModule,
     MatDividerModule,
     MatListModule,
+    MatIconModule,
+    MatTabsModule
   ]
 })
 export class CoreModule {}

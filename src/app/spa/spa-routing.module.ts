@@ -14,45 +14,51 @@ import { PagoTabContainerComponent } from '@app/user/containers/pago-tab-contain
 
 const routes: Routes = [
   {
-    path: 'admin',
-    component: AdminContainerComponent,
-    children: [
-      {
-        path: 'clients',
-        component: ClientTabContainerComponent
-      },
-      {
-        path: 'taxis',
-        component: TaxiTabContainerComponent
-      },
-      {
-        path: 'details',
-        component: DetailsTabContainerComponent
-      }
-    ]
-  },
-  {
-    path: 'user',
-    component: UserContainerComponent,
-    children: [
-      {
-        path: 'historial',
-        component: HistorialTabContainerComponent
-      },
-      {
-        path: 'serv',
-        component: ServTabContainerComponent
-      },
-      {
-        path: 'pago',
-        component: PagoTabContainerComponent
-      }
-    ]
-  },
-  {
     path: '',
-    redirectTo: 'admin/clients',
-    pathMatch: 'full'
+    component: SpaComponent,
+    children: [
+      {
+        path: 'admin',
+        component: AdminContainerComponent,
+        children: [
+          {
+            path: 'clients',
+            component: ClientTabContainerComponent
+          },
+          {
+            path: 'taxis',
+            component: TaxiTabContainerComponent
+          },
+          {
+            path: 'details',
+            component: DetailsTabContainerComponent
+          }
+        ]
+      },
+      {
+        path: 'user',
+        component: UserContainerComponent,
+        children: [
+          {
+            path: 'historial',
+            component: HistorialTabContainerComponent
+          },
+          {
+            path: 'serv',
+            component: ServTabContainerComponent
+          },
+          {
+            path: 'pago',
+            component: PagoTabContainerComponent
+          }
+        ]
+      },
+      {
+        path: '',
+        redirectTo: 'admin/clients',
+        pathMatch: 'full'
+      }
+    ]
   }
 ];
 

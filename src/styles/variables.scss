@@ -1,5 +1,13 @@
-$primary-color: #1A237E;
+$primary-color: #304FFE;
 
 .mat-list-item-content{
   padding-right: 0px !important;
+}
+
+.mat-drawer-content {
+  background-color: $primary-color !important;
+}
+
+.mat-list .mat-list-item .mat-list-item-content, .mat-list .mat-list-option .mat-list-item-content, .mat-nav-list .mat-list-item .mat-list-item-content, .mat-nav-list .mat-list-option .mat-list-item-content, .mat-selection-list .mat-list-item .mat-list-item-content, .mat-selection-list .mat-list-option .mat-list-item-content{
+  padding: 0 !important;
 }

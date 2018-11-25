@@ -1,6 +1,6 @@
 .mat-sidenav-container{
   position: absolute;
-  top: 60px;
+  top: 0;
   bottom: 0;
   left: 0;
   right: 0;
@@ -13,4 +13,12 @@
     padding: 10px;
     display: block;
   }
+}
+.mat-icon-button{
+  margin :5px;
+}
+
+header{
+  background-color: white;
+
 }

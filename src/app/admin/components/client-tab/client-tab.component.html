@@ -1,45 +1,250 @@
 <div class="container-fluid">
-    <div class="row">
-      <div class="col-12">
-        <mat-card>
-          <mat-card-header>
-            <mat-card-title>Clientes</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <form>
-              <div class="row">
-                <div class="col-12">
-                    <mat-form-field>
-                        <input matInput placeholder="Taxista">
-                      </mat-form-field>
+  <div class="row">
+    <div class="col-12">
+      <mat-tab-group mat-align-tabs="center">
+        <mat-tab label="Buscar">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>Buscar Cliente</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <form>
+                <div class="row">
+                  <div class="col-8">
+                      <app-input
+                        placeholder="Nombre"
+                        autocomplete="firstName"
+                        error="El nombre es requerido"
+                        [control]="form.get('firstName')"
+                      >
+                      </app-input>
+                  </div>
+                  <div class="col-4">
+                    <mat-card-actions>
+                      <button mat-raised-button color="primary">Buscar</button>
+                    </mat-card-actions>
+                  </div>
                 </div>
-              </div>
-              <div class="row mt-2">
-                <div class="col-12">
-                  <app-input placeholder="Contraseña" autocomplete="current-password" type="password" error="La contraseña es requerida">
-                  </app-input>
+              </form>
+            </mat-card-content>
+          </mat-card>
+        </mat-tab>
+        <mat-tab label="Crear">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>Crear Cliente</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <form>
+                <div class="row">
+                  <div class="col-6">
+                    <app-input
+                      placeholder="Nombre"
+                      autocomplete="firstName"
+                      error="El nombre es requerido"
+                      [control]="form.get('firstName')"
+                    >
+                    </app-input>
+                  </div>
+                  <div class="col-6">
+                    <app-input
+                      placeholder="Apellidos"
+                      autocomplete="lastName"
+                      error="Los apellidos son requeridos"
+                      [control]="form.get('lastName')"
+                    >
+                    </app-input>
+                  </div>
                 </div>
+                <div class="row mt-3">
+                  <div class="col-12">
+                    <app-input
+                      placeholder="Correo electrónico"
+                      autocomplete="email"
+                      error="El correo es requerido"
+                      [control]="form.get('email')"
+                    >
+                    </app-input>
+                  </div>
+                </div>
+                <div class="row mt-2">
+                  <div class="col-6">
+                    <app-input
+                      placeholder="YYYY-MM-DD"
+                      autocomplete="Fecha de nacimiento"
+                      error="Fecha de nacimiento requerida"
+                      [control]="form.get('date')"
+                    >
+                    </app-input>
+                  </div>
+                  <div class="col-6">
+                    <app-input
+                      placeholder="Celular"
+                      autocomplete="cellphone"
+                      error="El celular es requerido"
+                      [control]="form.get('cellphone')"
+                    >
+                    </app-input>
+                  </div>
+                </div>
+                <div class="row mt-2">
+                  <div class="col-12">
+                    <app-input
+                      placeholder="Usuario"
+                      autocomplete="username"
+                      error="El nombre de usuario es requerido"
+                      [control]="form.get('username')"
+                    >
+                    </app-input>
+                  </div>
+                </div>
+                <div class="row mt-2">
+                  <div class="col-12">
+                    <app-input
+                      placeholder="Contraseña"
+                      autocomplete="current-password"
+                      type="password"
+                      error="La contraseña es requerida"
+                      [control]="form.get('password')"
+                    >
+                    </app-input>
+                  </div>
+                </div>
+              </form>
+            </mat-card-content>
+            <div class="row">
+              <div class="col-6">
+                <mat-card-actions>
+                  <button mat-raised-button color="primary" (click)="submit()">
+                    Crear
+                  </button>
+                </mat-card-actions>
               </div>
-            </form>
-          </mat-card-content>
-          <div class="row">
-            <div class="col-6">
-              <mat-card-actions>
-                <button mat-raised-button color="primary">
-                  Iniciar sesión
-                </button>
-              </mat-card-actions>
             </div>
-            <div class="col-6">
-              <mat-card-actions>
-                <button
-                 mat-raised-button color="secondary">
-                  Registrarse
-                </button>
-              </mat-card-actions>
+          </mat-card>
+        </mat-tab>
+        <mat-tab label="Actualizar">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>Actualizar Cliente</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <form>
+                <div class="row">
+                  <div class="col-6">
+                    <app-input
+                      placeholder="Nombre"
+                      autocomplete="firstName"
+                      error="El nombre es requerido"
+                      [control]="form.get('firstName')"
+                    >
+                    </app-input>
+                  </div>
+                  <div class="col-6">
+                    <app-input
+                      placeholder="Apellidos"
+                      autocomplete="lastName"
+                      error="Los apellidos son requeridos"
+                      [control]="form.get('lastName')"
+                    >
+                    </app-input>
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-12">
+                    <app-input
+                      placeholder="Correo electrónico"
+                      autocomplete="email"
+                      error="El correo es requerido"
+                      [control]="form.get('email')"
+                    >
+                    </app-input>
+                  </div>
+                </div>
+                <div class="row mt-2">
+                  <div class="col-6">
+                    <app-input
+                      placeholder="YYYY-MM-DD"
+                      autocomplete="Fecha de nacimiento"
+                      error="Fecha de nacimiento requerida"
+                      [control]="form.get('date')"
+                    >
+                    </app-input>
+                  </div>
+                  <div class="col-6">
+                    <app-input
+                      placeholder="Celular"
+                      autocomplete="cellphone"
+                      error="El celular es requerido"
+                      [control]="form.get('cellphone')"
+                    >
+                    </app-input>
+                  </div>
+                </div>
+                <div class="row mt-2">
+                  <div class="col-12">
+                    <app-input
+                      placeholder="Usuario"
+                      autocomplete="username"
+                      error="El nombre de usuario es requerido"
+                      [control]="form.get('username')"
+                    >
+                    </app-input>
+                  </div>
+                </div>
+                <div class="row mt-2">
+                  <div class="col-12">
+                    <app-input
+                      placeholder="Contraseña"
+                      autocomplete="current-password"
+                      type="password"
+                      error="La contraseña es requerida"
+                      [control]="form.get('password')"
+                    >
+                    </app-input>
+                  </div>
+                </div>
+              </form>
+            </mat-card-content>
+            <div class="row">
+              <div class="col-6">
+                <mat-card-actions>
+                  <button mat-raised-button color="primary" (click)="submit()">
+                    Actualizar
+                  </button>
+                </mat-card-actions>
+              </div>
             </div>
-          </div>
-        </mat-card>
-      </div>
+          </mat-card>
+        </mat-tab>
+        <mat-tab label="Eliminar">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>Eliminar Cliente</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <form>
+                <div class="row">
+                    <div class="col-8">
+                        <app-input
+                          placeholder="Nombre"
+                          autocomplete="firstName"
+                          error="El nombre es requerido"
+                          [control]="form.get('firstName')"
+                        >
+                        </app-input>
+                    </div>
+                  <div class="col-4">
+                    <mat-card-actions>
+                      <button mat-raised-button color="primary">Buscar</button>
+                    </mat-card-actions>
+                  </div>
+                </div>
+              </form>
+            </mat-card-content>
+          </mat-card>
+        </mat-tab>
+      </mat-tab-group>
     </div>
   </div>
+</div>

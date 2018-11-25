@@ -1,36 +1,51 @@
-<header>
-  <h1>Taxi Unico</h1>
-</header>
-<body>
-  <mat-sidenav-container>
-      <mat-sidenav mode="side" opened>
-          <mat-list style="padding-top: 0px">
-              <mat-divider></mat-divider>
-              <mat-list-item>
-                  <div  routerLinkActive="active"
-                        [routerLink]="['historial']">
-                    Historial
-                  </div>
-              </mat-list-item>
-              <mat-divider></mat-divider>
-              <mat-list-item>
-                  <div  routerLinkActive="active"
-                        [routerLink]="['serv']">
-                    Servicio
-                  </div>
-              </mat-list-item>
-              <mat-divider></mat-divider>
-              <mat-list-item>
-                  <div  routerLinkActive="active"
-                        [routerLink]="['pago']">
-                    Metodo de Pago
-                  </div>
-              </mat-list-item>
-              <mat-divider></mat-divider>
-            </mat-list>
-      </mat-sidenav>
-      <mat-sidenav-content>
-        <router-outlet></router-outlet>
-      </mat-sidenav-content>
-  </mat-sidenav-container>
-</body>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="push">
+    <mat-list style="padding-top: 0px">
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <div
+          routerLinkActive="active"
+          [routerLink]="['serv']"
+          (click)="sidenav.toggle()"
+        >
+          Servicio
+        </div>
+      </mat-list-item>
+
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <div
+          routerLinkActive="active"
+          [routerLink]="['historial']"
+          (click)="sidenav.toggle()"
+        >
+          Historial
+        </div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <div
+          routerLinkActive="active"
+          [routerLink]="['pago']"
+          (click)="sidenav.toggle()"
+        >
+          Metodo de Pago
+        </div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <header>
+      <div class="row">
+        <div class="col-1">
+          <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+          </button>
+        </div>
+        <div class="col-11"><h1>Taxi Único</h1></div>
+      </div>
+    </header>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

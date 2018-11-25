@@ -11,20 +11,12 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
+  query_historial(username: string): Observable<Viaje> {
+    let url = 'http://10.23.22.91:5000/getViajesFromCliente';
+    url += '?' + 'username=' + username;
 
-  query_historial (username: string): Observable<Viaje> {
-  	var url = 'http://10.23.22.91:5000/getViajesFromCliente';
-  	url += '?' + 'username='+username;
-
-  	//var deferred = $q.defer();
-    return this.http.get<Viaje>(url).subscribe(val => console.log(val));
-    	/*.then(function(response){
-           deferred.resolve(response.data);
-        })
-        .catch(function(response){
-          deferred.reject(response);
-        });*/
+    return this.http.get<Viaje>(url);
   }
 }
